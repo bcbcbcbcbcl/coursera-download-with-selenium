@@ -31,8 +31,8 @@ pip install requests
 ```
 
 - Download [geckodriver v0.20.1](https://github.com/mozilla/geckodriver/releases/tag/v0.20.1)
-  1. Extract **_geckodriver.exe_** from the zip file
-  2. Cut and paste **_geckodriver.exe_** into selenium folder
+  1. Extract **geckodriver.exe** from the zip file
+  2. Cut and paste **geckodriver.exe** into selenium folder
 
 - Download [**coursera-download.py**](coursera-download.py) from this repository and place it in the directory you want to store the courses
 
@@ -55,11 +55,12 @@ Linux example:
 python /home/bcbcbcbcbcl/Desktop/coursera-download.py -u youremail@gmail.com -p yourpassword
 ```
 
-- Enter the coursename you want to download exactly as shown in website 
+
+And enter the coursename you want to download exactly as shown in website
 ```
 Please enter the coursename you want to download exactly as shown in the website: sequence models
 ```
-(Please make sure it is in your courses **Last Active** list)
+(Make sure it is in your courses **Last Active** list and please be noted that this script is only use to download all videos in one course per time but not all courses in one certificate)
 
 
 ### Other options
