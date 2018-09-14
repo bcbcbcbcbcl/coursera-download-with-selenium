@@ -1,6 +1,7 @@
-# Coursera-download (working - updated 14/9/2018)
+# coursera-download (working - updated 14/9/2018)
 
 A simple automation script to download, label and arrange Coursera videos in ascending order.
+
 
 
 ## Features
@@ -10,13 +11,12 @@ A simple automation script to download, label and arrange Coursera videos in asc
 - [ ] Download subtitles (will be added soon)
 
 
+
 ## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 - Python 3 and above
 - Enrolled in the course and have the course you want to download in the coursera website **Last Active** list
+
 
 ### Installing
 
@@ -34,14 +34,16 @@ pip install requests
   1. Extract **_geckodriver.exe_** from the zip file
   2. Cut and paste **_geckodriver.exe_** into selenium folder
 
-- Download [**coursera-download.py**](coursera-download.py) from this repository and place it in the directory you want to store the video
+- Download [**coursera-download.py**](coursera-download.py) from this repository and place it in the directory you want to store the courses
+
 
 
 ## Start downloading
 
-Run the script to start download
-
-- Open up terminal and type **python /path/to/the/script/coursera-download.py -u <username/email> -p <password/>**
+Open up terminal and type
+```
+python /path/to/the/script/coursera-download.py -u {username/email} -p {password}
+```
 
 Windows example:
 ```
@@ -53,22 +55,39 @@ Linux example:
 python /home/bcbcbcbcbcl/Desktop/coursera-download.py -u youremail@gmail.com -p yourpassword
 ```
 
-- Enter the coursename you want to download exactly as shown in website (Please make sure it is in your courses **Last Active** list)
+- Enter the coursename you want to download exactly as shown in website 
 ```
-Please enter the coursename you want to download exactly as shown in the website: **sequence models**
+Please enter the coursename you want to download exactly as shown in the website: sequence models
+```
+(Please make sure it is in your courses **Last Active** list)
+
+
+### Other options
+You may set the waiting time for web elements longer if your internet connection is very slow and take longer time to load a website. Of course, you can also set it faster if you are having very fast internet connection. Turn off headless mode will open up mozilla browser and allow you to see the automation script crawl videos from the website.
+
+```
+-t Time for selenium web driver to wait for missing element(s) implicitly          (default: 10)
+-m Headless mode (download the tutorial at background without open up the browser) (default: True)
+
+Example:
+python coursera-download.py -u youremail@gmail.com -p yourpassword -t 20 -m False
 ```
 
-Feel free to report any bug in the automation script or reach out for help if you face any difficulties while downloading the courses.
+Feel free to reach out for help if you face any difficulties while downloading the courses.
+
 
 
 ## Message
 I believe education should be affordable for everyone. Download the courses and learn offline to save more.
+
 Please share it with your friends if you found this useful. Thanks :heart:
+
 
 
 ## Authors
 
-**bcbcbcbcbcl** - *Initial work* - [Coursera-download](https://github.com/bcbcbcbcbcl)
+**bcbcbcbcbcl** - *Initial work* - [coursera-download](https://github.com/bcbcbcbcbcl)
+
 
 
 ## License
