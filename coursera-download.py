@@ -68,8 +68,8 @@ browser.find_element_by_xpath("//form[@name='login']/div/button").click()
 
 courses = browser.find_elements_by_xpath("//h4[contains(@class,'headline-1-text')]")
 #exit if login failed
-print(len(courses))
-if(len(courses)==0):
+#can be no courses found in the Last Active list also
+if(len(courses)==0): 
     print("Wrong email or password. Please try again!")
     browser.quit()
     exit()
