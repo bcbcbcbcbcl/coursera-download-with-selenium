@@ -32,7 +32,17 @@ pip install requests
 
 - Download [geckodriver v0.20.1](https://github.com/mozilla/geckodriver/releases/tag/v0.20.1)
   1. Extract **geckodriver.exe** from the zip file
-  2. Cut and paste **geckodriver.exe** into selenium folder
+  2. Cut and paste **geckodriver.exe** into a folder that already exist in environment PATH
+  
+  Windows example using terminal:
+  ```
+  move C:\Users\bcbcbcbcbcl\Desktop\geckodriver.exe C:\Users\bcbcbcbcbcl\AppData\Local\Programs\Python\Python37-32\
+  ```
+  
+  Linux example using terminal:
+  ```
+  sudo mv geckodriver /usr/local/bin
+  ```
 
 - Download [**coursera-download.py**](coursera-download.py) from this repository and place it in the directory you want to store the courses
 
@@ -64,7 +74,7 @@ Please enter the coursename you want to download exactly as shown in the website
 
 
 ### Other options
-You may set the waiting time for web elements longer if your internet connection is very slow and take longer time to load a website. Of course, you can also set it faster if you are having very fast internet connection. Turn off headless mode will open up mozilla browser and allow you to see the automation script crawl videos from the website.
+You may set the waiting time for web elements longer if your internet connection is very slow and take longer time to load a website. Of course, you can also set it faster if you are having very fast internet connection. Recommended minimum waiting time is 5 seconds even you are having very fast internet connection to allow the web page some time to load. Turn off headless mode will open up mozilla browser and allow you to see the automation script crawl videos from the website.
 
 ```
 -t Time for selenium web driver to wait for missing element(s) implicitly          (default: 10)
