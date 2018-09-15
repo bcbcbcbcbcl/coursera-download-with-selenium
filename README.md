@@ -1,6 +1,6 @@
-# coursera-download (working - updated 14/9/2018)
+# coursera-downloader (working - updated 14/9/2018)
 
-A simple automation script to download, label and arrange Coursera videos in ascending order.
+Coursera Downloader - A simple automation script to download, label and arrange Coursera videos in ascending order.
 
 
 
