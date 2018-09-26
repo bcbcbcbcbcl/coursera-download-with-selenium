@@ -11,7 +11,6 @@ from selenium.common.exceptions import StaleElementReferenceException
 
 
 def downloadfile(topic, topic_count, title, url):
-    
     filename = coursename + "/" + str(topic_count) + " " + topic + "/" + title + ".mp4"
 
     r = requests.get(url)
@@ -29,7 +28,7 @@ parser.add_argument("-p","--password", type=str, default=None,
                     help="Your coursera account password")
 parser.add_argument("-t","--time", type=float, default=10,
                     help="Time for selenium web driver to wait for missing element(s) implicitly")
-parser.add_argument("-m","--mode", type=bool, default=True,
+parser.add_argument("--headless-mode-off", action="store_true",
                     help="Headless mode (download the tutorial at background without open up the browser)")
 args = parser.parse_args()
 
@@ -51,13 +50,16 @@ profile = webdriver.FirefoxProfile()
 profile.set_preference("media.volume_scale", "0.0")
 profile.update_preferences()
 
+if args.headless_mode_off:
+    browser = webdriver.Firefox(firefox_profile=profile)
+else:
+    #Operating in headless mode
+    opts = Options()
+    opts.set_headless()
+    assert opts.headless
+    browser = webdriver.Firefox(firefox_profile=profile,options=opts)
 
-#Operating in headless mode
-opts = Options()
-opts.set_headless()
-assert opts.headless
 
-browser = webdriver.Firefox(firefox_profile=profile,options=opts)
 browser.implicitly_wait(waiting_time)
 browser.get('https://www.coursera.org/?authMode=login')
 
@@ -104,9 +106,8 @@ topic_count=1
 for i in range (len(weeks)):
     weeks[i].click()
     time.sleep(waiting_time) #longer wait time
-    video_played = browser.find_elements_by_class_name("cif-play")
-    video_not_played = browser.find_elements_by_class_name("cif-item-video")
-    print("Total video(s) in week " + str(i+1) + ": " + str(len(video_played)+len(video_not_played)))
+    video = browser.find_elements_by_xpath("//ul/li/a/div/div/div/div[contains(@class,'rc-WeekItemName')]/span")
+    print("Total video(s) in week " + str(i+1) + ": " + str(len(video)))
 
     #navigate to video page by click on the 1st video
     browser.find_element_by_xpath("//ul/li/a/div").click()
@@ -133,13 +134,11 @@ for i in range (len(weeks)):
         print("Browsing topic: " + topic)
         
         #count number of video in a topic
-        video_played1 = browser.find_elements_by_xpath("((//div[contains(@class,'rc-CollapsibleLesson')])[" + str(k+1) + "]/div/ul/li/a/div/div/span/i[contains(@class,'cif-play')])")
-        video_not_played1 = browser.find_elements_by_xpath("((//div[contains(@class,'rc-CollapsibleLesson')])[" + str(k+1) + "]/div/ul/li/a/div/div/i[contains(@class,'cif-item-video')])")
-        video_count = len(video_played1) + len(video_not_played1)
-        #print("Number of video(s) under this topic: " + str(video_count))
+        video1 = browser.find_elements_by_xpath("(//div[contains(@class,'item-list')])[" + str(k+1) + "]/ul/li/a/div/div/div[contains(@class,'rc-NavItemName')]/span")
+        #print("Number of video(s) under this topic: " + str(len(video1)))
 
 
-        if video_count > 0:
+        if len(video1) > 0:
             path = coursename + "/" + str(topic_count) + " " + topic
             #check if the directory exist
             if not os.path.exists(path):
@@ -153,7 +152,7 @@ for i in range (len(weeks)):
 
         v=0
         counter = 1
-        while v < video_count:
+        while v < len(video1):
             #navigate to video page
             browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME) #scroll to top to prevent element not clickable (blocked by other element)
             time.sleep(0.5)
@@ -200,6 +199,3 @@ for i in range (len(weeks)):
     
 print("All videos for " + course + " have been downloaded successfully!")
 browser.quit()
-
-
-
