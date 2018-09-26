@@ -106,8 +106,12 @@ topic_count=1
 for i in range (len(weeks)):
     weeks[i].click()
     time.sleep(waiting_time) #longer wait time
-    video = browser.find_elements_by_xpath("//ul/li/a/div/div/div/div[contains(@class,'rc-WeekItemName')]/span")
-    print("Total video(s) in week " + str(i+1) + ": " + str(len(video)))
+    video_elem = browser.find_elements_by_xpath("//ul/li/a/div/div/div/div[contains(@class,'rc-WeekItemName')]/span")
+    video = 0
+    for z in range(len(video_elem)):
+        if video_elem[z].text == "Lecture":
+            video +=1
+    print("Total video(s) in week " + str(i+1) + ": " + str(video))
 
     #navigate to video page by click on the 1st video
     browser.find_element_by_xpath("//ul/li/a/div").click()
@@ -116,6 +120,7 @@ for i in range (len(weeks)):
     #expand all topic
     for j in range (1,len(topic_elem)):
         topic_elem[j].click()
+    time.sleep(0.5)
 
     #browse topic
     for k in range(len(topic_elem)):
@@ -134,11 +139,15 @@ for i in range (len(weeks)):
         print("Browsing topic: " + topic)
         
         #count number of video in a topic
-        video1 = browser.find_elements_by_xpath("(//div[contains(@class,'item-list')])[" + str(k+1) + "]/ul/li/a/div/div/div[contains(@class,'rc-NavItemName')]/span")
-        #print("Number of video(s) under this topic: " + str(len(video1)))
+        video_elem2 = browser.find_elements_by_xpath("(//div[contains(@class,'item-list')])[" + str(k+1) + "]/ul/li/a/div/div/div[contains(@class,'rc-NavItemName')]/span")
+        video2 = 0
+        for z in range(len(video_elem2)):
+            if video_elem2[z].text == "Lecture":
+                video2 +=1
+        print("Number of video(s) under this topic: " + str(video2))
 
 
-        if len(video1) > 0:
+        if video2 > 0:
             path = coursename + "/" + str(topic_count) + " " + topic
             #check if the directory exist
             if not os.path.exists(path):
@@ -152,7 +161,7 @@ for i in range (len(weeks)):
 
         v=0
         counter = 1
-        while v < len(video1):
+        while v < video2:
             #navigate to video page
             browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME) #scroll to top to prevent element not clickable (blocked by other element)
             time.sleep(0.5)
