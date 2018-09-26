@@ -1,4 +1,4 @@
-# coursera-downloader (working - updated 14/9/2018)
+# coursera-downloader (working - updated 26/9/2018)
 
 Coursera Downloader - A simple automation script to download, label and arrange Coursera videos in ascending order.
 
@@ -70,28 +70,27 @@ And enter the coursename you want to download exactly as shown in website. For e
 ```
 Please enter the coursename you want to download exactly as shown in the website: sequence models
 ```
-(Make sure it is in your courses **Last Active** list and you have enrolled the course. Please be noted that this script is only use to download all videos in one course per time but not all courses in one certificate)
+(Make sure it is in your courses **Last Active** list and you have enrolled the course)
+
+Please be noted that this script is only use to download all videos in one course per time but not all courses in one certificate.
 
 
 ### Other options
-You may set the waiting time for web elements longer if your internet connection is very slow and take longer time to load a website. Of course, you can also set it faster if you are having very fast internet connection. Recommended minimum waiting time is 5 seconds even you are having very fast internet connection to allow the web page some time to load. Turn off headless mode will open up mozilla browser and allow you to see the automation script crawl videos from the website.
+You may set the waiting time for web elements longer if your internet connection is very slow and take longer time to load a website. You can also set it faster if you have very fast internet connection. Recommended minimum waiting time is 5 seconds even you are having very fast internet connection to allow the web page some time to load. 
+
+Turn off headless mode will open up mozilla browser and allow you to see the automation script crawl videos from the website.
 
 ```
--t Time for selenium web driver to wait for missing element(s) implicitly          (default: 10)
--m Headless mode (download the tutorial at background without open up the browser) (default: True)
+-t Time for selenium web driver to wait for missing element(s) implicitly   (default: 10)
+--headless-mode-off (download the tutorial at background without open up the browser)
 
 Example:
-python coursera-download.py -u youremail@gmail.com -p yourpassword -t 20 -m False
+python coursera-download.py -u youremail@gmail.com -p yourpassword -t 20 --headless-mode-off
 ```
 
 Feel free to reach out for help if you face any difficulties while downloading the courses.
 
-
-
-## Message
-I believe education should be affordable for everyone. Download the courses and learn offline to save more.
-
-Please share it with your friends if you found this useful. Thanks :heart:
+Do notify me if there is any changes on the Coursera website structure caused the scipt not working. Thanks :heart:
 
 
 
