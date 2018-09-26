@@ -30,6 +30,8 @@ pip install selenium
 pip install requests
 ```
 
+- Install Mozilla Firefox browser
+
 - Download [geckodriver v0.20.1](https://github.com/mozilla/geckodriver/releases/tag/v0.20.1)
   1. Extract **geckodriver.exe** from the zip file
   2. Cut and paste **geckodriver.exe** into a folder that already exist in environment PATH
@@ -72,7 +74,7 @@ Please enter the coursename you want to download exactly as shown in the website
 ```
 (Make sure it is in your courses **Last Active** list and you have enrolled the course)
 
-Please be noted that this script is only use to download all videos in one course per time but not all courses in one certificate.
+Please be noted that this script is only use to download all videos in one course per time but not all courses in one specialization.
 
 
 ### Other options
