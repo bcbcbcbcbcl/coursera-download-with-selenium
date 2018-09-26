@@ -66,11 +66,11 @@ python /home/bcbcbcbcbcl/Desktop/coursera-download.py -u youremail@gmail.com -p 
 ```
 
 
-And enter the coursename you want to download exactly as shown in website
+And enter the coursename you want to download exactly as shown in website. For example, to download "Sequence Models".
 ```
 Please enter the coursename you want to download exactly as shown in the website: sequence models
 ```
-(Make sure it is in your courses **Last Active** list and please be noted that this script is only use to download all videos in one course per time but not all courses in one certificate)
+(Make sure it is in your courses **Last Active** list and you have enrolled the course. Please be noted that this script is only use to download all videos in one course per time but not all courses in one certificate)
 
 
 ### Other options
