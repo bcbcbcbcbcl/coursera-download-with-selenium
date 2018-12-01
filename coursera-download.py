@@ -182,7 +182,7 @@ for i in range (len(weeks)):
                 
                 src = browser.find_element_by_xpath("//ul/span/li[contains(@class,'rc-LectureDownloadItem')]/a")
                 src_link = src.get_attribute("href")
-                title = browser.find_element_by_xpath("(//h1)[2]")
+                title = browser.find_element_by_xpath("(//h4)")
                 clean_title = title.text.replace("/","")
                 clean_title = clean_title.replace("?","")
                 clean_title = clean_title.replace(":","-")
@@ -202,7 +202,7 @@ for i in range (len(weeks)):
     browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME) #scroll to top to prevent element not clickable (blocked by navbar)
     time.sleep(0.5)
     #back to all week navigation
-    browser.find_element_by_xpath("(//nav)[2]/button").click()
+    browser.find_element_by_class_name("rc-BackToWeekButton").click()
     weeks = browser.find_elements_by_xpath("//div[contains(@class,'rc-NavigationDrawer')]/a")
     print("")
     
