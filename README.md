@@ -32,7 +32,7 @@ pip install requests
 
 - Install Mozilla Firefox browser
 
-- Download [geckodriver v0.20.1](https://github.com/mozilla/geckodriver/releases/tag/v0.20.1)
+- Download [geckodriver v0.23.0](https://github.com/mozilla/geckodriver/releases/tag/v0.23.0)
   1. Extract **geckodriver.exe** from the zip file
   2. Cut and paste **geckodriver.exe** into a folder that already exist in environment PATH
   
