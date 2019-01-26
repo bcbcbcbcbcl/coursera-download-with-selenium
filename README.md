@@ -84,7 +84,7 @@ Turn off headless mode will open up mozilla browser and allow you to see the aut
 
 ```
 -t Time for selenium web driver to wait for missing element(s) implicitly   (default: 10)
---headless-mode-off (download the tutorial at background without open up the browser)
+--headless-mode-off Headless mode (download the tutorial at background without open up the browser)
 
 Example:
 python coursera-download.py -u youremail@gmail.com -p yourpassword -t 20 --headless-mode-off
@@ -92,7 +92,7 @@ python coursera-download.py -u youremail@gmail.com -p yourpassword -t 20 --headl
 
 Feel free to reach out for help if you face any difficulties while downloading the courses.
 
-Do notify me if there is any changes on the Coursera website structure caused the scipt not working. Thanks :heart:
+Do notify me if there is any changes on the Coursera website structure caused the script not working. Thanks :heart:
 
 
 
