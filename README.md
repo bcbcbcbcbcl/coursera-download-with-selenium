@@ -1,8 +1,8 @@
-# coursera-downloader (working - updated 01/12/2018)
+# coursera-downloader
 
 Coursera Downloader - A simple automation script to download, label and arrange Coursera videos in ascending order.
 
-
+:warning: The script is outdated as Coursera just added Google CAPTCHA to protect their website from bots.
 
 ## Features
 - [x] Download tutorial videos in mp4 format
